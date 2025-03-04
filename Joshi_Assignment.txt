@@ -1,0 +1,309 @@
+1--> HTML Code
+     ------------
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="stylesheet" href="./profile.css">
+     </head>
+     <body>
+     <div class="profile-card">
+        <img src="../assest/pngwing.com (10).png" alt="Profile Picture" class="profile-pic">
+        <div class="name">Joshi Bhaskar</div>
+        <div class="designation">Web Developer</div>
+        <p class="bio">Passionate developer with experience in front-end and back-end technologies.</p>
+        <div class="social-icons">
+            <a href="https://LinkedIn.com">LinkedIn</a>
+    
+            <a href="https://Github.com">Github</a>
+        
+            <a href="https://telegram.com">Telegram</a>
+        </div>
+    </div>
+    </body>
+    </html>
+
+
+    CSS Code
+    -------------
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    }
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f3f3;
+    }
+    .profile-card {
+    background: rgb(174, 216, 241);
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    }
+   .profile-card:hover {
+    transform: scale(1.05);
+    }
+    .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    }
+   .name {
+    font-size: 20px;
+    font-weight: bold;
+    }
+   .designation {
+    color: gray;
+    font-size: 14px;
+    margin-bottom: 10px;
+    }
+   .bio {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    }
+    .social-icons a {
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s;
+    }
+   .social-icons a:hover {
+    color: #007bff;
+    }
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+2--> import java.util.Arrays;
+     import java.util.Scanner;
+
+     public class AnagramCheck {
+	public static boolean
+     isAnagram(String str1, String str2) {
+		
+		str1 = str1.replaceAll("\\s", "").toLowerCase();
+		str2 = str2.replaceAll("\\s", "").toLowerCase();
+		if(str1.length() != str2.length()) {
+			return false;
+		}
+		char[] charArray1 = str1.toCharArray();
+		char[] charArray2 = str2.toCharArray();
+		Arrays.sort(charArray1);
+		Arrays.sort(charArray2);
+		return Arrays.equals(charArray1, charArray2);
+	}
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter first string : ");
+		String str1 = scanner.nextLine();
+		System.out.print("Enter second string : ");
+		String str2 = scanner.nextLine();
+		if(isAnagram(str1, str2)) {
+			System.out.println("True - The strings are Anagrams.");
+		}
+		else {
+			System.out.println("False - The strings are not Anagrams.")
+		}
+		scanner.close();
+	}
+     }
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+3-->import java.util.List;
+    import java.util.ArrayList;
+
+    class Employee {
+	private int id;
+	private String name;
+	private double salary;
+	
+	public Employee(int id, String name, double salary)
+	{
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+	}
+	public void dispalyDetails(Employee emp)
+	{
+		System.out.println("ID : " +id+ ", Name : " +name+ ", Salary : $" +salary);
+	}
+    }
+
+    public class EmployeeMain {
+	public static void main(String[] args) 
+	{
+		List <Employee> list = new ArrayList <Employee>(); 
+		list.add(new Employee(124, "Vinay", 55000.00));
+		list.add(new Employee(136, "Nagesh", 68000.00));
+		list.add(new Employee(148, "Badri", 75000.00));
+	System.out.println("Employee Details :");
+	for (Employee employee:list)
+	{
+		employee.displayDetails(employee);
+		System.out.println("-----------------------------");
+	}
+	}
+    }
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+4--> HTML Code
+    -------------
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            padding: 8px;
+            width: 200px;
+        }
+        button {
+            padding: 8px;
+            margin-left: 5px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+    </style>
+    </head>
+    <body>
+    <h2>To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="taskList"></ul>
+    <script src="script.js"></script>
+    </body>
+    </html>
+
+
+    JavaScript Code
+   ------------------
+    function addTask() {
+    let taskInput = document.getElementById("taskInput");
+    let taskText = taskInput.value.trim();
+    if (taskText === "") {
+        alert("Please enter a task.");
+        return;
+    }
+    let li = document.createElement("li");
+    li.textContent = taskText;
+    let removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.style.marginLeft = "10px";
+    removeButton.onclick = function() {
+        li.remove();
+    };
+    li.appendChild(removeButton);
+    document.getElementById("taskList").appendChild(li);
+    taskInput.value = ""; 
+    }
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+5--> HTML Code
+    -------------
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        img {
+            width: 500px;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+    </head>
+    <body>
+    <h2>Image Slider</h2>
+    <img id="slider" src="" alt="Image Slider">
+    <br>
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+    <script src="script.js"></script>
+    </body>
+    </html>
+
+
+    JavaScript Code
+   ------------------
+    let images = [
+    "https://images.unsplash.com/photo-1516116216624-53e697fedbea",
+    "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
+    "https://images.unsplash.com/photo-1472214103451-9374bd1c798e",
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+    ];
+    let currentIndex = 0;
+    let slider = document.getElementById("slider");
+    function updateImage() {
+    slider.src = images[currentIndex];
+    }
+    function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImage();
+    }
+    function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImage();
+    }
+    updateImage();
